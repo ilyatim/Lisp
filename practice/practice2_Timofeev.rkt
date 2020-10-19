@@ -1,0 +1,41 @@
+#lang racket
+(display "Задание 1\n")
+(display "Вычисление площади кольца \n")
+(display "Радиус кольца (см) => ")
+(define R(read))
+(display "Радиус отверстия (см) => ")
+(define r(read))
+(define pi 3.14)
+(define (ring-area R r)
+ (
+  cond ((or (> r R) (< R 0) (< r 0)) (display "Неверное значение\n"))
+(else (display (format"Площадь кольца ~a кв см\n"
+                (* pi (- (* R R) (* r r))))))
+  ))
+(ring-area R r)
+
+(display "Задание 2\n")
+(display "Определение високосности года \n")
+(display "Введите год => ")
+(define year(read))
+(define (isLeap year)
+  (
+   cond ((= (remainder year 400) 0) (display "Год високосный"))
+        ((= (remainder year 100) 0) (display "Год невисокосный"))
+        ((= (remainder year 4) 0) (display "Год високосный"))
+        (else (display "Год невисокосный"))
+   )
+  )
+(isLeap year)
+
+(display "Задание 3\n")
+(display "Вычисление стоимости покупки с учетом скидки \n")
+(display "Введите сумму покупки => ")
+(define price(read))
+(define (price-with-sale price)
+  (
+   cond ((> price 1000) (* price 0.9))
+        (else price)
+  )
+  )
+(display (format "Сумма покупки = ~a" (price-with-sale price)))
