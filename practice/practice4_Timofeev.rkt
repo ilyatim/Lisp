@@ -20,18 +20,18 @@
 ;;;;на всех уровнях вложения. Пример: для списка '(1 ((2 3) 4) 5 6)
 ;;;;результатом будет : '(1 (4 (3 2)) 5 6).
 (display "\nЗадание 2\n")
-(define (sum-sublist list)
+(display " \n")
+(define myList2 (list 1 (list (list 2 3) 4) 5 6))
+(define (sumSublist list)
   (for/list ([i (length list)])
     (if (list? (list-ref list i))
-        (set! list (list-set list i (apply + (sum-sublist(list-ref list i)))))
+        (set! list (list-set list i (apply + (sumSublist(list-ref list i)))))
         (void))
     )
   list
 )
-;(sum-sublist '(1 2 3 4))
-;(sum-sublist '(1 ()))
-(sum-sublist '(1 ((2 3) 4) 5 6))
-;;;;Описать функцию, которая для заданного списка проверяет, является ли
+(display (sumSublist myList2))
+;;;;Задание 3 - Описать функцию, которая для заданного списка проверяет, является ли
 ;;;;он отсортированным по возрастанию (убыванию).
 (display "\nЗадание 3\n")
 (display " \n")
